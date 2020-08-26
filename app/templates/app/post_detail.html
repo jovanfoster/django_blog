@@ -6,3 +6,5 @@
     <p>{{ post.body }}</p>
 
 {% endblock %}
+
+<a href="{% url 'post-update' post.pk %}">Update</a>
