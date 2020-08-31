@@ -5,6 +5,26 @@
     <p>{{ post.date_created }}</p>
     <p>{{ post.body }}</p>
 
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form }}
+    
+        <input type="submit" value="Post Comment">
+    </form>
+
+    <div>
+        {% for comment in post.comments.all %}
+
+            <div>
+                <h4>{{ comment.author }}</h4>
+                <p>{{ comment.date_created }}</p>
+                <p>{{ comment.body }}</p>
+            </div>
+
+        {% endfor %}
+    </div>
+    
 {% endblock %}
 
 <a href="{% url 'post-update' post.pk %}">Update</a>
+<a href="{% url 'post-delete' post.pk %}">Delete</a>

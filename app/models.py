@@ -12,3 +12,9 @@ class Post(models.Model):
         return self.title
 
 
+class Comment(models.Model):
+    author = models.CharField(max_length=30)
+    body = models.TextField()
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)   
+    date_created = models.TimeField(auto_now=True)
+
