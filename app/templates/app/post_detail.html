@@ -23,8 +23,10 @@
 
         {% endfor %}
     </div>
+
+    {% if post.author == user %}
+        <a href="{% url 'post-update' post.pk %}">Update</a>
+        <a href="{% url 'post-delete' post.pk %}">Delete</a>
+    {% endif %}
     
 {% endblock %}
-
-<a href="{% url 'post-update' post.pk %}">Update</a>
-<a href="{% url 'post-delete' post.pk %}">Delete</a>

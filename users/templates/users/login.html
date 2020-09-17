@@ -1,0 +1,20 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h1>Login</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="Login">
+
+    <p>Don't have an account? <a href="{% url 'register' %}">Register now</a></p>
+</form>
